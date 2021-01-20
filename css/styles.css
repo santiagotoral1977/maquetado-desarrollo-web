@@ -51,6 +51,108 @@ a {
   font-family: "WebSymbolsRegular";
 }
 
+@keyframes rotate-gear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes fromBellow {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(200%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes fromRight {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes backBanner {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -319px -201px;
+  }
+}
+@keyframes showText {
+  0% {
+    transform: translateX(-600%) scale(5);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(600%) scale(5);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-600%) scale(5);
+    text-shadow: none;
+    color: transparent;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%) scale(1);
+    text-shadow: 2px 2px 1px black;
+    color: white;
+    opacity: 1;
+  }
+}
+@keyframes showIcon {
+  from {
+    transform: translateY(-200%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes showCategory {
+  from {
+    transform: translateY(-300%);
+    color: black;
+  }
+  to {
+    transform: translateY(0%);
+    color: white;
+  }
+}
+@keyframes showDescription {
+  from {
+    transform: translateX(-300%);
+    color: black;
+  }
+  to {
+    transform: translateX(0%);
+    color: white;
+  }
+}
+@keyframes blink {
+  0% {
+    border: 10px solid #37BCF9;
+  }
+  25% {
+    border: 10px solid green;
+  }
+  50% {
+    border: 10px solid yellow;
+  }
+  75% {
+    border: 10px solid white;
+  }
+  100% {
+    border: 10px solid #37BCF9;
+  }
+}
 #header {
   width: 100%;
   padding: 8px;
@@ -71,6 +173,7 @@ a {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 300ms;
+  overflow: hidden;
   /*Flex*/
   display: flex;
   flex-flow: row wrap;
@@ -88,6 +191,21 @@ a {
   margin-bottom: 2px;
   font-family: "WebSymbolsRegular";
   font-size: 1.875rem;
+  animation-name: rotate-gear;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+#header #logo:hover {
+  border-radius: 2px;
+  color: black;
+  background-color: #cccccc;
+}
+#header #logo:hover .gear {
+  animation: fromBellow 500ms linear;
+}
+#header #logo:hover h3 {
+  animation: fromRight 300ms linear;
 }
 #header #menu {
   width: 50%;
@@ -105,7 +223,7 @@ a {
 }
 #header #menu a:hover {
   color: #37BCF9;
-  transform: scale(1.2, 1.2);
+  transform: scale(1.2);
 }
 
 #info {
@@ -120,8 +238,10 @@ a {
   box-shadow: 0px 0px 2px gray;
   margin-top: 20px;
   text-align: center;
+  overflow: hidden;
   background-image: url("../img/bakbaner.png");
   background-position: -319px -201px;
+  animation: backBanner 10s linear;
 }
 #info #banner h1 {
   color: white;
@@ -131,6 +251,7 @@ a {
   letter-spacing: 2px;
   text-shadow: 2px 2px 1px black;
   padding: 20px;
+  animation: showText 10s linear;
 }
 
 #cards {
@@ -149,22 +270,43 @@ a {
   text-align: center;
   border: 1px solid #cccccc;
   box-shadow: 1px 1px 2px #dddddd;
+  overflow: hidden;
+  transition: all 300ms;
 }
 #cards .card .icon {
   padding: 20px 0px 20px 0px;
   font-size: 2.8rem;
+  transition: all 300ms;
 }
 #cards .card .category {
   color: #00538c;
   padding: 20px 0px 20px 0px;
+  transition: all 300ms;
   font-family: "TrebuchetMS";
   font-size: 1.2rem;
   font-weight: bold;
 }
 #cards .card .description {
   color: #00538c;
+  transition: all 300ms;
   font-family: "TrebuchetMS";
   font-size: 0.9rem;
+}
+#cards .card:hover {
+  background-color: black;
+}
+#cards .card:hover .icon {
+  font-size: 4.4rem;
+  color: #37BCF9;
+  animation: showIcon 300ms linear;
+}
+#cards .card:hover .category {
+  color: white;
+  animation: showCategory 400ms linear;
+}
+#cards .card:hover .description {
+  color: white;
+  animation: showDescription 400ms linear;
 }
 
 #articles {
@@ -230,6 +372,15 @@ a {
 }
 #articles #blog {
   text-align: center;
+  transition: all 1s;
+}
+#articles #blog:hover {
+  background-color: #333333;
+  border: 10px solid #37BCF9;
+  border-radius: 240px;
+  box-shadow: 0px 0px 10px gray;
+  /*Animación para el borde*/
+  animation: blink 10s infinite linear;
 }
 #articles #blog a {
   width: 100%;
@@ -240,9 +391,11 @@ a {
   font-weight: bold;
   letter-spacing: 2px;
   padding: 20px 0px 20px 0px;
+  transition: all 1s;
 }
 #articles #blog a:hover {
-  text-decoration: underline;
+  color: white;
+  text-shadow: 1px 1px 1px black, 1px 2px 1px black, 1px 3px 1px black, 1px 4px 1px black, 1px 5px 1px black, 1px 6px 1px black;
 }
 
 #lateral {
@@ -408,6 +561,26 @@ a {
   margin-left: 18px;
   line-height: 52px;
 }
+#lateral #social .overlay {
+  display: inline-block;
+  width: 57%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0px 0px 1px #cccccc;
+  border: 3px solid white;
+  box-shadow: 0px 0px 4px #cccccc;
+  background-color: #f4f7fe;
+  padding: 5px;
+  margin-left: 10px;
+  transform: translateX(-80%);
+  opacity: 0;
+  transition: all 400ms;
+}
+#lateral #social div:hover .overlay {
+  opacity: 1;
+  transform: translateX(0%);
+}
 #lateral #sponsors {
   width: 80%;
   height: 200px;
@@ -466,6 +639,13 @@ a {
   content: "•";
   padding-right: 8px;
   color: #d6cbcb;
+}
+#footer #menu_footer ul li a {
+  transition: all 300ms;
+}
+#footer #menu_footer ul li a:hover {
+  padding-left: 40px;
+  color: white;
 }
 #footer #location {
   width: 21%;

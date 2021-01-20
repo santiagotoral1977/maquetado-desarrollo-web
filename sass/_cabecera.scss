@@ -17,6 +17,7 @@
         letter-spacing: 1px;
         cursor: pointer;
         transition: all 300ms;
+        overflow: hidden;
         /*Flex*/
         display: flex;
         flex-flow: row wrap;
@@ -35,6 +36,23 @@
                 family: "WebSymbolsRegular";
                 size: 1.875rem;
             }
+            
+            //Animación de la tuerca
+            animation-name: rotate-gear;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        &:hover{
+            border-radius: 2px;
+            color: black;
+            background-color: #cccccc;
+            .gear{
+                animation: fromBellow 500ms linear;
+            }
+            h3{
+                animation: fromRight 300ms linear;
+            }
         }
     }
     #menu{
@@ -51,7 +69,7 @@
             transition: all 200ms;
             &:hover{
                 color: $azul-claro;
-                transform: scale(1.2, 1.2);
+                transform: scale(1.2);
              }
         }
     }

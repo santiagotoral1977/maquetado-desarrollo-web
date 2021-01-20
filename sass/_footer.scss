@@ -42,6 +42,13 @@
                     padding-right: 8px;
                     color: rgb(214, 203, 203);
                 }
+                a{
+                    transition: all 300ms;
+                    &:hover{
+                        padding-left: 40px;
+                        color: white;
+                    }
+                }
             }
         }
     }

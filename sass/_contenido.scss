@@ -63,6 +63,16 @@
     }
     #blog{
         text-align: center;
+        transition: all 1s;
+        &:hover{
+            background-color: #333333;
+            border: 10px solid $azul-claro;
+            border-radius: 240px;
+            box-shadow: 0px 0px 10px gray;
+
+            /*Animación para el borde*/
+            animation: blink 10s infinite linear;
+        }
         a{
             width: 100%;
             color: #00538c;
@@ -74,8 +84,10 @@
             }
             letter-spacing: 2px;
             padding: 20px 0px 20px 0px;
+            transition: all 1s;
             &:hover{
-                text-decoration: underline;
+                color: white;
+                text-shadow: $texto3d;
             }
         }
     }

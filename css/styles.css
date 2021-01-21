@@ -108,6 +108,28 @@ a {
     opacity: 1;
   }
 }
+@keyframes showText-responsive {
+  0% {
+    transform: translateX(-600%) scale(3);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(600%) scale(3);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-600%) scale(3);
+    text-shadow: none;
+    color: transparent;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%) scale(1);
+    text-shadow: 2px 2px 1px black;
+    color: white;
+    opacity: 1;
+  }
+}
 @keyframes showIcon {
   from {
     transform: translateY(-200%);
@@ -208,7 +230,7 @@ a {
   animation: fromRight 300ms linear;
 }
 #header #menu {
-  width: 50%;
+  width: 60%;
   font-size: 1.5rem;
   /*Flex*/
   display: flex;
@@ -296,7 +318,7 @@ a {
   background-color: black;
 }
 #cards .card:hover .icon {
-  font-size: 4.4rem;
+  font-size: 3.5rem;
   color: #37BCF9;
   animation: showIcon 300ms linear;
 }
@@ -510,6 +532,12 @@ a {
 #lateral #login #campo2 input[type=password]:focus {
   color: #555555;
 }
+#lateral #login #formulario {
+  /*Flex*/
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
 #lateral #login input[type=submit],
 #lateral #login input[type=button],
 #lateral #login input[type=reset],
@@ -524,7 +552,6 @@ a {
   cursor: pointer;
   font-size: 1rem;
   font-family: "TrebuchetMS";
-  margin-left: 19px;
   margin-bottom: 20px;
   transition: all 300ms;
 }
@@ -672,6 +699,333 @@ a {
 #footer #info_footer #autor {
   color: white;
   font-size: 0.9rem;
+}
+
+@media (max-width: 1344px) {
+  #cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+}
+@media (max-width: 1297px) {
+  #lateral #social {
+    width: 85%;
+  }
+
+  #footer h5 {
+    font-size: 1.9rem;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  #footer #menu_footer {
+    width: 28%;
+    margin-left: 5%;
+  }
+  #footer #location {
+    width: 28%;
+  }
+  #footer #info_footer {
+    width: 28%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 1170px) {
+  #info #banner h1 {
+    font-size: 2rem;
+  }
+
+  #articles {
+    margin-top: 40px;
+  }
+
+  #lateral {
+    margin-top: 40px;
+  }
+  #lateral #search input[type=text] {
+    width: 75%;
+  }
+  #lateral #search input[type=button], #lateral #search input[type=submit] {
+    width: 15%;
+    padding-left: 0px;
+    text-align: right;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 1100px) {
+  #lateral h3 {
+    font-size: 1.5rem;
+    padding: 5px 10px 5px 10px;
+  }
+}
+@media (max-width: 1022px) {
+  #container {
+    grid-template-rows: 70px 475px 1fr 470px;
+  }
+
+  #cards {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  #cards .card {
+    min-height: 220px;
+  }
+  #cards .card .icon {
+    font-size: 2.3rem;
+  }
+  #cards .card .category {
+    font-size: 1rem;
+  }
+  #cards .card .description {
+    font-size: 0.8rem;
+  }
+
+  #lateral #login {
+    height: 280px;
+  }
+  #lateral #login #formulario {
+    flex-direction: column;
+  }
+  #lateral #login input[type=submit],
+#lateral #login input[type=button],
+#lateral #login input[type=reset],
+#lateral #login button {
+    margin-bottom: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #lateral #login a {
+    margin-top: 5px;
+    margin-left: 35px;
+  }
+}
+@media (max-width: 964px) {
+  #lateral #social {
+    width: 100%;
+  }
+  #lateral #social a {
+    font-size: 1.5rem;
+  }
+  #lateral h3 {
+    font-size: 1.1rem;
+  }
+
+  #footer #info_footer img {
+    max-width: 100%;
+  }
+  #footer #info_footer #browsers img {
+    width: 30px;
+  }
+}
+@media (max-width: 863px) {
+  #header #logo h3 {
+    font-size: 2rem;
+  }
+  #header #logo .gear {
+    font-size: 1.5rem;
+  }
+
+  #footer h5 {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 842px) {
+  #info #banner h1 {
+    font-size: 1.6rem;
+  }
+
+  #articles {
+    margin-top: -48px;
+  }
+
+  #lateral {
+    margin-top: -48px;
+  }
+
+  #cards {
+    grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  }
+  #cards .card {
+    min-height: 150px;
+  }
+  #cards .card .icon {
+    font-size: 2.8rem;
+  }
+  #cards .card .category {
+    font-size: 1.2rem;
+  }
+  #cards .card .description {
+    display: none;
+  }
+}
+@media (max-width: 734px) {
+  #container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 140px 600px 1200px 1fr 1500px;
+    grid-template-areas: "my-header" "my-banner" "my-aside" "my-articles" "my-footer";
+  }
+  #container #header #logo {
+    flex-basis: 30%;
+  }
+  #container #header #logo h3 {
+    font-size: 2.5rem;
+  }
+  #container #header #logo .gear {
+    font-size: 1.875rem;
+  }
+  #container #header #menu {
+    font-size: 2rem;
+    margin-top: 10px;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  #container #info {
+    width: 95%;
+  }
+  #container #info #banner h1 {
+    font-size: 2.5rem;
+    animation: showText-responsive 10s linear;
+  }
+  #container #info #cards {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
+  }
+  #container #lateral {
+    width: 100%;
+  }
+  #container #lateral h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #container #lateral #search {
+    height: 50px;
+  }
+  #container #lateral #search input[type=text] {
+    width: 91%;
+    height: 50px;
+  }
+  #container #lateral #search input[type=button], #container #lateral #search input[type=submit] {
+    width: 5%;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  #container #lateral #login #campo1 {
+    height: 50px;
+  }
+  #container #lateral #login #campo1 input[type=email] {
+    height: 50px;
+  }
+  #container #lateral #login #campo1 #user {
+    font-size: 1.3rem;
+  }
+  #container #lateral #login #campo2 {
+    height: 50px;
+  }
+  #container #lateral #login #campo2 input[type=password] {
+    height: 50px;
+  }
+  #container #lateral #login #campo2 #password {
+    font-size: 1.7rem;
+  }
+  #container #lateral #login #formulario {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  #container #lateral #login #formulario input[type=reset] {
+    display: none;
+  }
+  #container #lateral #login #formulario input[type=submit],
+#container #lateral #login #formulario input[type=button],
+#container #lateral #login #formulario button {
+    flex-basis: 30%;
+    font-size: 2rem;
+  }
+  #container #lateral #login a {
+    font-size: 1rem;
+  }
+  #container #lateral #social {
+    width: 90%;
+  }
+  #container #lateral #sponsors {
+    width: 90%;
+  }
+  #container #articles {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #container #articles #blog a {
+    font-size: 3rem;
+  }
+  #container #footer h5 {
+    font-size: 2.5rem;
+    margin-top: 30px;
+  }
+  #container #footer #menu_footer {
+    height: auto;
+    flex-basis: 90%;
+    margin-left: 0%;
+  }
+  #container #footer #location {
+    height: 37%;
+    flex-basis: 90%;
+  }
+  #container #footer #location iframe {
+    width: 100%;
+    height: 70%;
+  }
+  #container #footer img {
+    width: 70%;
+  }
+  #container #footer #info_footer {
+    flex-basis: 90%;
+    margin-right: 0%;
+    height: 38%;
+  }
+  #container #footer #info_footer #browsers img {
+    width: 70px;
+  }
+  #container #footer #info_footer #autor {
+    color: white;
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 518px) {
+  #container #header #logo h3 {
+    font-size: 2rem;
+  }
+  #container #header #logo .gear {
+    font-size: 1.5rem;
+  }
+  #container #header #menu {
+    font-size: 1.3rem;
+  }
+  #container #info #banner h1 {
+    font-size: 2rem;
+  }
+  #container #info #cards {
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 5px;
+  }
+  #container #info #cards .card .category {
+    font-size: 0.9rem;
+  }
+  #container #lateral #search input[type=button], #container #lateral #search input[type=submit] {
+    font-size: 1.2rem;
+  }
+  #container #articles article h4 {
+    flex-basis: 100%;
+    margin-top: 23px;
+  }
+  #container #articles article .data {
+    flex-basis: 106%;
+    margin-top: -61px;
+    border-radius: 0px 0px 5px 5px;
+  }
+  #container #footer #info_footer #browsers img {
+    width: 58px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

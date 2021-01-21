@@ -104,6 +104,12 @@
                 }
             }
         }
+        #formulario{
+            /*Flex*/
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+        }
         input[type="submit"],
         input[type="button"],
         input[type="reset"],
@@ -118,7 +124,6 @@
             cursor: pointer;
             font-size: 1rem;
             font-family: "TrebuchetMS";
-            margin-left: 19px;
             margin-bottom: 20px;
             transition: all 300ms;
             &:hover{
